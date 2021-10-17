@@ -1,0 +1,13 @@
+---
+- name: Install latest Vim
+  package:
+    name:
+      - vim
+      - git
+    state: latest
+  when: ansible_distribution != "MacOSX"
+
+- name: Include setup tasks
+  include_tasks:
+    file: setup.yml
+  loop: "{{ vim_users }}"

@@ -1,0 +1,56 @@
+---
+- name: Vim config deploy block
+  block:
+  - name: create dir for vim plugins
+    file:
+      path: "$HOME/.vim/pack/default/start/"
+      state: directory
+      mode: '0750'
+
+  - name: Clone fugitive vim module
+    git:
+      repo: 'https://github.com/tpope/vim-fugitive.git'
+      dest: "{{ vim_dir }}/fugitive"
+      version: "master"
+      depth: 1
+      update: yes
+
+  - name: Clone gruvbox vim module
+    git:
+      repo: 'https://github.com/morhetz/gruvbox.git'
+      dest: "{{ vim_dir }}/gruvbox"
+      version: "master"
+      depth: 1
+      update: yes
+
+  - name: Clone vim-airline vim module
+    git:
+      repo: 'https://github.com/vim-airline/vim-airline.git'
+      dest: "{{ vim_dir }}/vim-airline"
+      version: "master"
+      depth: 1
+      update: yes
+
+  - name: Clone vim-airline-themes vim module
+    git:
+      repo: 'https://github.com/vim-airline/vim-airline-themes.git'
+      dest: "{{ vim_dir }}/vim-airline-themes"
+      version: "master"
+      depth: 1
+      update: yes
+
+  - name: Clone vim-bracketed-paste vim module
+    git:
+      repo: 'https://github.com/ConradIrwin/vim-bracketed-paste.git'
+      dest: "{{ vim_dir }}/vim-bracketed-paste"
+      version: "master"
+      depth: 1
+      update: yes
+
+  - name: Deploy .vimrc
+    copy:
+      src: "vimrc"
+      dest: "$HOME/.vimrc"
+      mode: '0640'
+  become_user: "{{ item }}"
+  when: item is defined

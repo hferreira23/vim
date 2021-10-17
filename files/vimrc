@@ -1,0 +1,52 @@
+"set theme
+colors gruvbox
+set background=dark
+set termguicolors
+let g:gruvbox_contrast_dark = 'hard'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+" Enable syntax highlight
+syntax on
+
+" Enable detection, plugins and indent
+filetype plugin indent on
+
+" Paste
+set pastetoggle=<F2>
+
+" Disable vim swap files
+set noswapfile
+set nobackup
+set nowb
+
+" Set tab and backspace size
+set bs=2
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" set lines
+set nu
+
+" Always show the status bar
+set laststatus=2
+
+" set colors
+set t_Co=256
+
+" show invisible chars
+scriptencoding utf-8
+set encoding=utf-8
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+set nolist
+
+" Use a different char for misplaced whitespaces
+let python_space_errors = 1
+
+" Auto clear empty spaces at end
+autocmd BufWritePre * :%s/\s\+$//e
