@@ -50,3 +50,8 @@ let python_space_errors = 1
 
 " Auto clear empty spaces at end
 autocmd BufWritePre * :%s/\s\+$//e
+
+"alacritty and vim theme compatiblity
+if &term == "alacritty"
+  let &term = "xterm-256color"
+endif
