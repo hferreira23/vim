@@ -4,3 +4,29 @@ vim_users:
   - root
 
 vim_dir: "$HOME/.vim/pack/default/start/"
+
+vim_git_repos:
+  - name: "vim-fugitive"
+    repo: 'https://github.com/tpope/vim-fugitive.git'
+    dest: "{{ vim_dir }}/fugitive"
+    version: "master"
+
+  - name: "gruvbox"
+    repo: 'https://github.com/morhetz/gruvbox.git'
+    dest: "{{ vim_dir }}/gruvbox"
+    version: "master"
+
+  - name: "vim-airline"
+    repo: 'https://github.com/vim-airline/vim-airline.git'
+    dest: "{{ vim_dir }}/vim-airline"
+    version: "master"
+
+  - name: "vim-airline-themes"
+    repo: 'https://github.com/vim-airline/vim-airline-themes.git'
+    dest: "{{ vim_dir }}/vim-airline-themes"
+    version: "master"
+
+  - name: "vim-bracketed-paste"
+    repo: 'https://github.com/ConradIrwin/vim-bracketed-paste.git'
+    dest: "{{ vim_dir }}/vim-bracketed-paste"
+    version: "master"

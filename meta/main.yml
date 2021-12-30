@@ -28,9 +28,9 @@ galaxy_info:
   # https://galaxy.ansible.com/api/v1/platforms/
   #
   platforms:
-  - name: Linux
+  - name: Debian
     versions:
-    - all
+    - Bookworm
   #   - 25
   # - name: SomePlatform
   #   versions:
