@@ -33,6 +33,9 @@ galaxy_info:
     - Bookworm
     - Buster
     - Bullseye
+  - name: macOS
+    versions:
+    - Big-Sur
   #   - 25
   # - name: SomePlatform
   #   versions:

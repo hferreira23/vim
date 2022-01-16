@@ -16,7 +16,6 @@
       update: yes
     loop: "{{ vim_git_repos }}"
 
-
   - name: Deploy .vimrc
     copy:
       src: "vimrc"
