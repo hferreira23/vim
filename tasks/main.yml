@@ -7,6 +7,16 @@
     state: latest
   when: ansible_distribution != "MacOSX"
 
+- name: Install required brew packages
+  community.general.homebrew:
+    name:
+      - vim
+      - git
+    state: latest
+    update_homebrew: yes
+  become: false
+  when: ansible_distribution == "MacOSX"
+
 - name: Include setup tasks
   include_tasks:
     file: setup.yml
