@@ -21,3 +21,5 @@
   include_tasks:
     file: setup.yml
   loop: "{{ vim_users }}"
+  loop_control:
+    loop_var: outer_item
