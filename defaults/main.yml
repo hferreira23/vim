@@ -1,6 +1,6 @@
 ---
 vim_users:
-  - 2xtreme
+  - hferreira
   - root
 
 vim_dir: "$HOME/.vim/pack/default/start/"
