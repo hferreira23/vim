@@ -1,7 +1,10 @@
+---
 galaxy_info:
   author: Hugo Ferreira
   description: VIM for my needs
   company: No Company, I'm all alone
+  role_name: vim
+  namespace: hferreira
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -14,9 +17,9 @@ galaxy_info:
   # - GPL-3.0-only
   # - Apache-2.0
   # - CC-BY-4.0
-  license: GPL-3.0-only
+  license: MIT
 
-  min_ansible_version: 2.11
+  min_ansible_version: "2.20"
 
   # If this a Container Enabled role, provide the minimum Ansible Container version.
   # min_ansible_container_version:
@@ -28,14 +31,11 @@ galaxy_info:
   # https://galaxy.ansible.com/api/v1/platforms/
   #
   platforms:
-  - name: Debian
-    versions:
-    - Bookworm
-    - Buster
-    - Bullseye
-  - name: macOS
-    versions:
-    - Big-Sur
+    - name: Debian
+      versions:
+        - bookworm
+        - buster
+        - bullseye
   #   - 25
   # - name: SomePlatform
   #   versions:
