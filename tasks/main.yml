@@ -1,6 +1,6 @@
 ---
 - name: Install latest Vim
-  package:
+  ansible.builtin.package:
     name:
       - vim
       - git
@@ -13,12 +13,12 @@
       - vim
       - git
     state: latest
-    update_homebrew: yes
+    update_homebrew: true
   become: false
   when: ansible_distribution == "MacOSX"
 
 - name: Include setup tasks
-  include_tasks:
+  ansible.builtin.include_tasks:
     file: setup.yml
   loop: "{{ vim_users }}"
   loop_control:

@@ -1,0 +1,23 @@
+name: Ansible Lint
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  ansible-lint:
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/hferreira/ansible:latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Run ansible-lint
+        run: |
+          set -euo pipefail
+          ansible-lint -v --force-color

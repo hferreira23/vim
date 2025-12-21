@@ -1,25 +1,26 @@
 ---
 - name: Vim config deploy block
-  block:
-  - name: create dir for vim plugins
-    file:
-      path: "$HOME/.vim/pack/default/start/"
-      state: directory
-      mode: '0750'
-
-  - name: Clone VIM git repos
-    git:
-      repo: "{{ item.repo }}"
-      dest: "{{ item.dest }}"
-      version: "{{ item.version }}"
-      depth: 1
-      update: yes
-    loop: "{{ vim_git_repos }}"
-
-  - name: Deploy .vimrc
-    copy:
-      src: "vimrc"
-      dest: "$HOME/.vimrc"
-      mode: '0640'
+  become: true
   become_user: "{{ outer_item }}"
   when: outer_item is defined
+  block:
+    - name: Create dir for vim plugins
+      ansible.builtin.file:
+        path: "$HOME/.vim/pack/default/start/"
+        state: directory
+        mode: '0750'
+
+    - name: Clone VIM git repos
+      ansible.builtin.git:
+        repo: "{{ item.repo }}"
+        dest: "{{ item.dest }}"
+        version: "{{ item.version }}"
+        depth: 1
+        update: true
+      loop: "{{ vim_git_repos }}"
+
+    - name: Deploy .vimrc
+      ansible.builtin.copy:
+        src: "vimrc"
+        dest: "$HOME/.vimrc"
+        mode: '0640'
